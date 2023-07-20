@@ -1,13 +1,8 @@
-use std::{
-    env,
-    fs::File,
-    io::{self, BufRead, BufReader},
-    path::Path,
-};
+use common::functions::{get_file_path, read_input};
+use std::io;
 
 fn main() -> io::Result<()> {
-    let args = env::args().collect::<Vec<String>>();
-    let f = args.get(1).expect("pass input file in command line");
+    let f = get_file_path();
 
     let mut vec = read_input(&f)?
         .split(|x| x.is_empty())
@@ -22,8 +17,4 @@ fn main() -> io::Result<()> {
     println!("Sum of Top 3  = {}", top_3);
 
     Ok(())
-}
-
-fn read_input(p: &impl AsRef<Path>) -> io::Result<Vec<String>> {
-    BufReader::new(File::open(p)?).lines().collect()
 }
