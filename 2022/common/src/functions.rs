@@ -5,7 +5,7 @@ use std::{
     path::Path,
 };
 
-pub fn get_cl_args() -> String {
+pub fn get_file_path() -> String {
     let args = env::args().collect::<Vec<String>>();
     args.get(1)
         .expect("pass in input file path thorugh command line")
