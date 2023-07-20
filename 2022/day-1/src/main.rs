@@ -1,8 +1,8 @@
-use common::functions::{get_file_path, read_input};
+use common::functions::{get_input_file_arg, read_input};
 use std::io;
 
 fn main() -> io::Result<()> {
-    let f = get_file_path();
+    let f = get_input_file_arg();
 
     let mut vec = read_input(&f)?
         .split(|x| x.is_empty())
