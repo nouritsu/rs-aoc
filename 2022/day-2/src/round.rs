@@ -2,6 +2,7 @@ use std::str::FromStr;
 
 use crate::r#move::{Move, Outcome};
 
+#[derive(Debug)]
 pub struct Round(Move, Move);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -21,6 +22,10 @@ impl FromStr for Round {
 }
 
 impl Round {
+    pub fn new(m1: Move, m2: Move) -> Self {
+        Round(m1, m2)
+    }
+
     pub fn score(&self) -> usize {
         let move_score = match self.1 {
             Move::Rock => 1,

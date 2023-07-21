@@ -1,6 +1,6 @@
 use std::str::FromStr;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Move {
     Rock,
     Paper,
@@ -32,34 +32,28 @@ impl FromStr for Move {
 
 impl Move {
     pub fn vs(&self, opponent: &Move) -> Outcome {
-        match self {
-            Move::Rock => {
-                if opponent.eq(&Move::Scissors) {
-                    Outcome::Win
-                } else if opponent.eq(&Move::Paper) {
-                    Outcome::Loss
-                } else {
-                    Outcome::Draw
-                }
-            }
-            Move::Paper => {
-                if opponent.eq(&Move::Rock) {
-                    Outcome::Win
-                } else if opponent.eq(&Move::Scissors) {
-                    Outcome::Loss
-                } else {
-                    Outcome::Draw
-                }
-            }
-            Move::Scissors => {
-                if opponent.eq(&Move::Paper) {
-                    Outcome::Win
-                } else if opponent.eq(&Move::Rock) {
-                    Outcome::Loss
-                } else {
-                    Outcome::Draw
-                }
-            }
+        if self.defeats().eq(opponent) {
+            Outcome::Win
+        } else if self.defeated().eq(opponent) {
+            Outcome::Loss
+        } else {
+            Outcome::Draw
+        }
+    }
+
+    pub fn defeats(&self) -> Move {
+        match *self {
+            Move::Rock => Move::Scissors,
+            Move::Paper => Move::Rock,
+            Move::Scissors => Move::Paper,
+        }
+    }
+
+    pub fn defeated(&self) -> Move {
+        match *self {
+            Move::Rock => Move::Paper,
+            Move::Paper => Move::Scissors,
+            Move::Scissors => Move::Rock,
         }
     }
 }
