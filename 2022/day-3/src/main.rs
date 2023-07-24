@@ -22,7 +22,27 @@ fn main() -> io::Result<()> {
         })
         .sum::<usize>();
 
+    let output2 = input
+        .iter()
+        .map(|s| s.chars().collect())
+        .collect::<Vec<Vec<char>>>()
+        .chunks(3)
+        .map(|chunk| {
+            if let [e1, e2, e3] = chunk {
+                let common1 = find_common(e1, e2);
+                let common = find_common(&common1, e3);
+                return common
+                    .iter()
+                    .map(|e| Item::from_char(e.clone()).priority)
+                    .sum::<usize>();
+            } else {
+                panic!("invalid input")
+            };
+        })
+        .sum::<usize>();
+
     println!("Sum of priorities: {}", output1);
+    println!("Sum of priorities (Groups of 3): {}", output2);
     Ok(())
 }
 
