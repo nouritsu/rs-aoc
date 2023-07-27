@@ -25,4 +25,8 @@ impl Pair {
     pub fn fully_contains(&self) -> bool {
         self.0.superset(&self.1) || self.1.superset(&self.0)
     }
+
+    pub fn overlap(&self) -> bool {
+        self.0.overlap(&self.1) || self.1.overlap(&self.0)
+    }
 }

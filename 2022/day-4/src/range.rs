@@ -24,4 +24,8 @@ impl Range {
     pub fn superset(&self, other: &Range) -> bool {
         self.0 <= other.0 && self.1 >= other.1
     }
+
+    pub fn overlap(&self, other: &Range) -> bool {
+        self.0 <= other.1 && other.0 <= self.1
+    }
 }
