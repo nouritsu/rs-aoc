@@ -8,3 +8,9 @@ Looking at the code, it looks like I'm abusing the standard library. However, th
 
 ### Day 2
 I overcomplicated the solution by adding adding 3 user defined types, however it helped me in part 2 as I needed to write less code for them. I also learnt how to implement traits like `FromStr` by myself.
+
+### Day 3
+I wrote a generic function that would probably be useful in the future and learnt how to write things the rust way - using `fold` and `iter`. Throwing a HashMap at things usually tends to solve them.
+
+### Day 4
+Modelling your program using Traits, Enums and Structs in Rust tends to help scalability, I was able to implement the second part of the problem with minimal additions.
