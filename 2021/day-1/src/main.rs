@@ -9,15 +9,14 @@ fn main() -> io::Result<()> {
         .map(|num| num.parse().expect("invalid input"))
         .collect::<Vec<usize>>();
 
-    let output1 = input.windows(2).map(|a| a[1] > a[0]).filter(|b| *b).count();
+    let output1 = input.windows(2).filter(|a| a[1] > a[0]).count();
 
     let output2 = input
         .windows(3)
         .map(|a| a.iter().sum())
         .collect::<Vec<usize>>()
         .windows(2)
-        .map(|a| a[1] > a[0])
-        .filter(|b| *b)
+        .filter(|a| a[1] > a[0])
         .count();
 
     println!(
