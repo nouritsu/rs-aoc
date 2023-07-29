@@ -9,11 +9,25 @@ fn main() -> io::Result<()> {
         .map(|num| num.parse().expect("invalid input"))
         .collect::<Vec<usize>>();
 
-    let output = input.windows(2).map(|a| a[1] > a[0]).filter(|b| *b).count();
+    let output1 = input.windows(2).map(|a| a[1] > a[0]).filter(|b| *b).count();
+
+    let output2 = input
+        .windows(3)
+        .map(|a| a.iter().sum())
+        .collect::<Vec<usize>>()
+        .windows(2)
+        .map(|a| a[1] > a[0])
+        .filter(|b| *b)
+        .count();
 
     println!(
         "Number of measurements larger than the previous: {}",
-        output
+        output1
+    );
+
+    println!(
+        "Number of measurements larger than the previous (Sum with windows of 3): {}",
+        output2
     );
 
     Ok(())
