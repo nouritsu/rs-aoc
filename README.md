@@ -21,3 +21,7 @@ The standard library is far more powerful than I thought. `FromStr` is a super u
 ## 2021
 ### Day 1
 Array windows are super powerful in Rust. Mapping over them helped me implement the solution for each part using only 1 statement.
+
+## 2015
+### Day 1
+The solution was quite elegant thanks to match expressions and for loops. The language allows me to express myself like in no other language.
