@@ -33,10 +33,24 @@ impl MoveCrate {
         MoveCrate { count, from, to }
     }
 
-    pub fn apply(&self, v: &mut Vec<Vec<char>>) {
+    pub fn apply_pop(&self, v: &mut Vec<Vec<char>>) {
         for _ in 0..self.count {
             let e = v[self.from].pop().expect("invalid input");
             v[self.to].push(e);
+        }
+    }
+
+    pub fn apply_chunk(&self, v: &mut Vec<Vec<char>>) {
+        let mut chunk = Vec::new();
+
+        for _ in 0..self.count {
+            chunk.push(v[self.from].pop().expect("invalid input"))
+        }
+
+        chunk.reverse();
+
+        for c in chunk {
+            v[self.to].push(c);
         }
     }
 }
