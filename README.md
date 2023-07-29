@@ -14,3 +14,6 @@ I wrote a generic function that would probably be useful in the future and learn
 
 ### Day 4
 Modelling your program using Traits, Enums and Structs in Rust tends to help scalability, I was able to implement the second part of the problem with minimal additions.
+
+### Day 5
+The standard library is far more powerful than I thought. `FromStr` is a super useful trait and the stl methods for vecs and strings are extremely useful. I finished the second part with minimal additions, which proves my program design was good.
