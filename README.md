@@ -17,3 +17,7 @@ Modelling your program using Traits, Enums and Structs in Rust tends to help sca
 
 ### Day 5
 The standard library is far more powerful than I thought. `FromStr` is a super useful trait and the stl methods for vecs and strings are extremely useful. I finished the second part with minimal additions, which proves my program design was good.
+
+## 2021
+### Day 1
+Array windows are super powerful in Rust. Mapping over them helped me implement the solution for each part using only 1 statement.
